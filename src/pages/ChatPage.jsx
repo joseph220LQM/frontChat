@@ -9,7 +9,7 @@ export default function ChatPage({ user }) {
 
   const fetchHistory = async () => {
   try {
-    const res = await fetch(`http://localhost:5000/api/chat/history/${email}`);
+    const res = await fetch(`https://back-chat-nine.vercel.app/api/chat/history/${email}`);
     if (!res.ok) throw new Error('No se pudo cargar el historial');
     const data = await res.json();
     if (data.messages) {
@@ -49,7 +49,7 @@ export default function ChatPage({ user }) {
 
   const handleSendHistory = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/chat/send-history', {
+      const res = await fetch('https://back-chat-nine.vercel.app/api/chat/send-history', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
